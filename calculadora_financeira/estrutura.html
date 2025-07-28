@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora Financeira</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f7f7f7;
+    }
+
+    .titulo {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto 20px;
+      height: 50px;
+    }
+
+    .calculadora {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .bloco {
+      background-color: #fff;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .bloco label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .bloco input {
+      width: 100%;
+      padding: 8px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    input[readonly] {
+      background-color: #eaeaea;
+    }
+
+    .botao-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="titulo">Calculadora Financeira</div>
+  <img src="logo.png" alt="Logo da Empresa" class="logo" />
+
+  <form id="formulario">
+    <div class="calculadora">
+      <div class="bloco">
+        <label>Valor Base (R$):</label>
+        <input type="number" id="valor1">
+      </div>
+
+      <div class="bloco">
+        <label>Taxa (%):</label>
+        <input type="number" id="taxa">
+      </div>
+
+      <div class="bloco">
+        <label>Desconto (R$):</label>
+        <input type="number" id="desconto">
+      </div>
+
+      <div class="bloco">
+        <label>Total Final (R$):</label>
+        <input type="text" id="total" readonly>
+      </div>
+
+      <div class="bloco">
+        <label>Parcelas:</label>
+        <input type="number" id="parcelas">
+      </div>
+
+      <div class="bloco">
+        <label>Valor da Parcela (R$):</label>
+        <input type="text" id="valor_parcela" readonly>
+      </div>
+
+      <div class="bloco">
+        <label>Comissão (%):</label>
+        <input type="number" id="comissao">
+      </div>
+
+      <div class="bloco">
+        <label>Valor da Comissão (R$):</label>
+        <input type="text" id="valor_comissao" readonly>
+      </div>
+    </div>
+
+    <div class="botao-container">
+      <button type="button" onclick="calcular()">Calcular</button>
+    </div>
+  </form>
+
+  <script>
+    function calcular() {
+      const valor1 = parseFloat(document.getElementById("valor1").value) || 0;
+      const taxa = parseFloat(document.getElementById("taxa").value) || 0;
+      const desconto = parseFloat(document.getElementById("desconto").value) || 0;
+      const parcelas = parseInt(document.getElementById("parcelas").value) || 1;
+      const comissao = parseFloat(document.getElementById("comissao").value) || 0;
+
+      const totalComTaxa = valor1 + (valor1 * (taxa / 100));
+      const totalFinal = totalComTaxa - desconto;
+      const valorParcela = totalFinal / parcelas;
+      const valorComissao = totalFinal * (comissao / 100);
+
+      document.getElementById("total").value = totalFinal.toLocaleString("pt-BR", {style: "currency", currency: "BRL"});
+      document.getElementById("valor_parcela").value = valorParcela.toLocaleString("pt-BR", {style: "currency", currency: "BRL"});
+      document.getElementById("valor_comissao").value = valorComissao.toLocaleString("pt-BR", {style: "currency", currency: "BRL"});
+    }
+  </script>
+
+</body>
+</html>
