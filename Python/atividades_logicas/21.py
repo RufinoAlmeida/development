@@ -1,4 +1,4 @@
-"Faça um programa em python que avre e reproduza um video arquivo MP4"
+"Faça um programa em python que abre e reproduza um video arquivo MP4"
 
 import os
 
