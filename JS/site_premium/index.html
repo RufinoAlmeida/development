@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Removals Australia | AusRemovals</title>
+    <meta name="description" content="Trusted residential and commercial removals in Australia.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            900: '#0F172A', 
+                            800: '#1E293B',
+                            600: '#2563EB', 
+                            50: '#F8FAFC',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-brand-50 text-gray-700 font-sans antialiased flex flex-col min-h-screen">
+
+    <header class="bg-white shadow-sm fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="router('home')">
+                    <span class="text-2xl font-bold text-brand-900 tracking-tight">AUS<span class="text-brand-600">REMOVALS</span></span>
+                </div>
+                
+                <nav class="hidden md:flex space-x-8">
+                    <button onclick="router('home')" class="text-gray-600 hover:text-brand-600 font-medium transition">Home</button>
+                    <button onclick="router('residential')" class="text-gray-600 hover:text-brand-600 font-medium transition">Residential</button>
+                    <a href="#quote" class="text-gray-600 hover:text-brand-600 font-medium transition">Contact</a>
+                </nav>
+
+                <div class="hidden md:flex">
+                    <a href="#quote" class="bg-brand-600 hover:bg-brand-900 text-white px-5 py-2.5 rounded-md font-semibold transition shadow-lg">
+                        Get a Free Quote
+                    </a>
+                </div>
+
+                <div class="flex md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <button onclick="router('home')" class="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-50">Home</button>
+            <button onclick="router('residential')" class="block w-full text-left px-4 py-3 text-gray-700 hover:bg-gray-50">Residential</button>
+            <a href="#quote" class="block w-full text-left px-4 py-3 text-brand-600 font-bold bg-gray-50">Get a Quote</a>
+        </div>
+    </header>
+    <div class="h-20"></div>
+
+    <main id="view-home" class="page-visible flex-grow">
+        <section class="relative h-[600px] flex items-center justify-center bg-gray-900">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Moving House Australia" class="w-full h-full object-cover">
+                <div class="absolute inset-0 hero-overlay"></div>
+            </div>
+            <div class="relative z-10 max-w-4xl mx-auto text-center px-4">
+                <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
+                    Stress-Free Moves Across <br/><span class="text-brand-600">Australia</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
+                    Professional, reliable, and fully insured removals.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#quote" class="
