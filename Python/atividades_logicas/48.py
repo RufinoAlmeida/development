@@ -7,5 +7,5 @@ for n in range(1, 501, 2):
         cont = cont + 1
         soma = soma + n
         
-print(soma)
 print(cont)
+print(soma)
